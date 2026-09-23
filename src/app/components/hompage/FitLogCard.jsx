@@ -16,7 +16,7 @@ const FitLogCard = ({ fitLog }) => {
   return (
     <Link href={`/workout/${id}`} className="group">
       <div className="bg-[#18181b] border border-zinc-800 rounded-2xl overflow-hidden hover:border-zinc-700 transition-all duration-300 flex flex-col h-full">
-        {/* Thumbnail */}
+
         <div className="relative w-full aspect-[4/3] bg-zinc-900 overflow-hidden">
           <Image
             src={image}
