@@ -126,7 +126,7 @@ transition: Bounce,
                   : "text-zinc-400 hover:text-white"
               }`}
             >
-              Today's Plan
+              Today&apos;s Plan
             </button>
 
             <button
