@@ -25,11 +25,15 @@ const Plan = () => {
 
   // Total minutes
   const totalMinutes = currentList.reduce(
-    (acc, curr) => acc + Number(curr.duration),0);
+    (acc, curr) => acc + Number(curr.duration),
+    0,
+  );
 
   // Total calories
   const totalCalories = currentList.reduce(
-    (acc, curr) => acc + Number(curr.caloriesBurned),0);
+    (acc, curr) => acc + Number(curr.caloriesBurned),
+    0,
+  );
 
   // Remove workout
   const handleRemove = (workout) => {
@@ -43,21 +47,21 @@ const Plan = () => {
 
   // Mark as done
   const handleMarkDone = (workout) => {
-  toast.success(`${workout.name} marked as done!`, {
-position: "top-right",
-autoClose: 5000,
-hideProgressBar: false,
-closeOnClick: false,
-pauseOnHover: true,
-draggable: true,
-progress: undefined,
-theme: "dark",
-transition: Bounce,
-});
-};
+    toast.success(`${workout.name} marked as done!`, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
+  };
 
-    return (
-         <div className="min-h-screen bg-[#121212] text-white px-4 md:px-8 py-8">
+  return (
+    <div className="min-h-screen bg-[#121212] text-white px-4 md:px-8 py-8">
       <div className="max-w-6xl mx-auto">
         {/* Title */}
         <div className="mb-6">
@@ -136,15 +140,19 @@ transition: Bounce,
           </div>
 
           {/* Sort */}
-          <select
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value)}
-            className="select select-success bg-zinc-900 text-white border-zinc-700"
-          >
-            <option value="Duration">Duration</option>
-            <option value="Calories">Calories</option>
-            <option value="Rating">Rating</option>
-          </select>
+          <div className="flex items-center gap-3 whitespace-nowrap">
+            <span className="text-gray-400 font-medium shrink-0">Sort By</span>
+
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              className="select select-accent select-sm"
+            >
+              <option value="Duration">Duration</option>
+              <option value="Calories">Calories</option>
+              <option value="Rating">Rating</option>
+            </select>
+          </div>
         </div>
 
         {/* Empty State */}
@@ -181,7 +189,7 @@ transition: Bounce,
         )}
       </div>
     </div>
-    );
+  );
 };
 
 export default Plan;
