@@ -7,7 +7,6 @@ const Footer = () => {
     <footer className="w-full bg-[#000] border-t border-zinc-800 px-6 py-7 text-zinc-400 text-xs mt-12">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
         
-        {/* Brand Logo & Name */}
         <Link href="/" className="flex items-center gap-2">
           <div className="w-5 h-5 relative flex items-center justify-center">
             <Image

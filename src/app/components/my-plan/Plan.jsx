@@ -1,37 +1,46 @@
 "use client";
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { useFitLog } from "@/context/FitLogContext";
 import MyPlanCard from "./PlanCard";
 import { Bounce, toast } from "react-toastify";
 
 const Plan = () => {
-  const { plan, saved, togglePlan, toggleSaved } = useFitLog();
 
-  const [sortBy, setSortBy] = useState("Duration");
-  const [activeTab, setActiveTab] = useState("today");
+  const { plan, saved, togglePlan, toggleSaved } = useFitLog();
+  
+  const [sortBy, setSortBy] = useState("default");
+  const searchParams = useSearchParams();
+  const tab = searchParams.get("tab");
+  const [activeTab, setActiveTab] = useState(
+    tab === "saved" ? "saved" : "today",
+  );
 
   const currentList = activeTab === "today" ? plan : saved;
+
   const sortedList = [...currentList];
 
-  // Sort
+  // Sort only when user selects a sorting option
   if (sortBy === "Rating") {
-    sortedList.sort((a, b) => b.rating - a.rating);
+    sortedList.sort((a, b) => Number(b.rating) - Number(a.rating));
   } else if (sortBy === "Duration") {
-    sortedList.sort((a, b) => b.duration - a.duration);
+    sortedList.sort((a, b) => Number(b.duration) - Number(a.duration));
   } else if (sortBy === "Calories") {
-    sortedList.sort((a, b) => b.caloriesBurned - a.caloriesBurned);
+    sortedList.sort(
+      (a, b) => Number(b.caloriesBurned) - Number(a.caloriesBurned),
+    );
   }
 
   // Total minutes
   const totalMinutes = currentList.reduce(
-    (acc, curr) => acc + Number(curr.duration),
+    (total, workout) => total + Number(workout.duration),
     0,
   );
 
   // Total calories
   const totalCalories = currentList.reduce(
-    (acc, curr) => acc + Number(curr.caloriesBurned),
+    (total, workout) => total + Number(workout.caloriesBurned),
     0,
   );
 
@@ -42,6 +51,7 @@ const Plan = () => {
     } else {
       toggleSaved(workout);
     }
+
     toast.error(`${workout.name} removed!`);
   };
 
@@ -54,7 +64,6 @@ const Plan = () => {
       closeOnClick: false,
       pauseOnHover: true,
       draggable: true,
-      progress: undefined,
       theme: "dark",
       transition: Bounce,
     });
@@ -148,8 +157,14 @@ const Plan = () => {
               onChange={(e) => setSortBy(e.target.value)}
               className="select select-success select-sm"
             >
+              <option value="default" className="text-gray-500">
+                Sort By
+              </option>
+
               <option value="Duration">Duration</option>
+
               <option value="Calories">Calories</option>
+
               <option value="Rating">Rating</option>
             </select>
           </div>
@@ -168,7 +183,7 @@ const Plan = () => {
 
             <Link
               href="/"
-              className="bg-[#ccff00] text-black font-extrabold text-xs uppercase px-6 py-2.5 rounded-full"
+              className="bg-[#ccff00] text-black font-extrabold text-xs uppercase px-6 py-2.5 rounded-full hover:bg-[#b8e600] transition"
             >
               Go to workouts
             </Link>

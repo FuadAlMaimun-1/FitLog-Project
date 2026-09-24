@@ -1,6 +1,4 @@
-
 "use client";
-
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
@@ -100,7 +98,7 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* Logo */}
+      
           <Link href="/" className="flex items-center gap-2 group">
             <Dumbbell className="w-6 h-6 text-[#ccff00] -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
 
@@ -110,17 +108,15 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Desktop Menu */}
+       {/* Mobile Menu */}
         <div className="navbar-center hidden md:flex">
           <ul className="menu menu-horizontal gap-2">
             {links}
           </ul>
         </div>
 
-        {/* Right Side */}
         <div className="navbar-end gap-3">
 
-          {/* Plan */}
           <Link
             href="/components/my-plan"
             className="hidden sm:flex items-center gap-2 text-xs font-semibold text-zinc-300 hover:text-white transition-colors"
