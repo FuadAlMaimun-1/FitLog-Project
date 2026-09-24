@@ -3,7 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useFitLog } from "@/context/FitLogContext";
 import MyPlanCard from "./MyPlanCard";
-import { toast } from "react-toastify";
+import { Bounce, toast } from "react-toastify";
 
 const MyPlan = () => {
   const { plan, saved, togglePlan, toggleSaved } = useFitLog();
@@ -45,13 +45,23 @@ const MyPlan = () => {
     } else {
       toggleSaved(workout);
     }
-    toast.error(`${ workout.name} removed!`);
+    toast.error(`${workout.name} removed!`);
   };
 
   // Mark as done
   const handleMarkDone = (workout) => {
-    console.log("Workout completed:", workout.name);
-  };
+  toast.success(`${workout.name} marked as done!`, {
+position: "top-right",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: false,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "dark",
+transition: Bounce,
+});
+};
 
   return (
     <div className="min-h-screen bg-[#121212] text-white px-4 md:px-8 py-8">
