@@ -10,8 +10,8 @@ const MyPlanCard = ({ workout, activeTab, onRemove, onMarkDone }) => {
         {/* Image */}
         <div className="w-20 h-16 relative rounded-lg overflow-hidden bg-zinc-800 flex-shrink-0">
           <Image
-            src={workout.image || workout.thumbnail || "/placeholder.jpg"}
-            alt={workout.name || workout.title || "Workout"}
+            src={workout.image}
+            alt={workout.name}
             fill
             sizes="80px"
             className="object-cover"
@@ -22,12 +22,12 @@ const MyPlanCard = ({ workout, activeTab, onRemove, onMarkDone }) => {
         <div>
           {/* Name */}
           <h3 className="font-oswald font-extrabold text-base md:text-lg uppercase text-white tracking-wide">
-            {workout.name || workout.title || "Workout"}
+            {workout.name}
           </h3>
 
           {/* Equipment */}
           <p className="text-xs text-zinc-400 font-medium mb-1">
-            {workout.equipment || "Bodyweight"}
+            {workout.equipment}
           </p>
 
           {/* Stats */}
@@ -35,7 +35,7 @@ const MyPlanCard = ({ workout, activeTab, onRemove, onMarkDone }) => {
             {/* Duration */}
             <span className="flex items-center gap-1">
               <Clock className="w-3.5 h-3.5 text-zinc-500" />
-              {workout.duration || workout.durationMinutes || 0} min
+              {workout.duration} min
             </span>
 
             <span>•</span>
@@ -43,7 +43,7 @@ const MyPlanCard = ({ workout, activeTab, onRemove, onMarkDone }) => {
             {/* Calories */}
             <span className="flex items-center gap-1">
               <Flame className="w-3.5 h-3.5 text-zinc-500" />
-              {workout.calories || workout.caloriesBurned || 0} kcal
+              {workout.calories} kcal
             </span>
 
             <span>•</span>
@@ -52,15 +52,13 @@ const MyPlanCard = ({ workout, activeTab, onRemove, onMarkDone }) => {
             <span className="flex items-center gap-1 text-zinc-300 font-semibold">
               <Star className="w-3.5 h-3.5 text-yellow-500 fill-yellow-500" />
 
-              {workout.rating || 4.5}
+              {workout.rating}
             </span>
           </div>
         </div>
       </div>
 
-      {/* =========================
-          RIGHT SIDE
-      ========================== */}
+      {/* RIGHT SIDE*/}
       <div className="flex items-center gap-2 self-end md:self-auto">
         {/* View Details */}
         <Link

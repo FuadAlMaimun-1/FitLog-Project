@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useFitLog } from "@/context/FitLogContext";
 import MyPlanCard from "./MyPlanCard";
+import { toast } from "react-toastify";
 
 const MyPlan = () => {
   const { plan, saved, togglePlan, toggleSaved } = useFitLog();
@@ -44,6 +45,7 @@ const MyPlan = () => {
     } else {
       toggleSaved(workout);
     }
+    toast.error(`${ workout.name} removed!`);
   };
 
   // Mark as done
