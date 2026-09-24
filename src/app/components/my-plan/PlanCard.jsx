@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Check, X, Clock, Flame, Star } from "lucide-react";
 
+
+
 const MyPlanCard = ({ workout, activeTab, onRemove, onMarkDone }) => {
   return (
     <div className="bg-[#18181b] border border-zinc-800/80 rounded-xl p-4 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-colors hover:border-zinc-700">

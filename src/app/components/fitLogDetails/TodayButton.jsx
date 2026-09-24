@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import { toast } from "react-toastify";
 import { useFitLog } from "@/context/FitLogContext";
@@ -14,12 +13,7 @@ const TodayButton = ({ workout }) => {
       toast.info("Workout is already in today's plan");
       return;
     }
-
-    if (plan.length >= 5) {
-      toast.error("You can add maximum 5 workouts");
-      return;
-    }
-
+    
     togglePlan(workout);
     toast.success("Workout added to plan successfully");
   };
