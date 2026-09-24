@@ -51,7 +51,6 @@ const Navbar = () => {
         {/* Navbar Start */}
         <div className="navbar-start">
 
-          {/* Mobile Menu */}
           <div className="dropdown md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -123,7 +122,7 @@ const Navbar = () => {
 
           {/* Plan */}
           <Link
-            href="/my-plan"
+            href="/components/my-plan"
             className="hidden sm:flex items-center gap-2 text-xs font-semibold text-zinc-300 hover:text-white transition-colors"
           >
             <span>Plan</span>
@@ -135,7 +134,7 @@ const Navbar = () => {
 
           {/* Saved */}
           <Link
-            href="/my-plan"
+            href="/components/my-plan?tab=saved"
             className="hidden sm:flex items-center gap-2 text-xs font-semibold text-zinc-300 hover:text-white transition-colors"
           >
             <span>Saved</span>
