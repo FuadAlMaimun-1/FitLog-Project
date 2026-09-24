@@ -141,12 +141,12 @@ const Plan = () => {
 
           {/* Sort */}
           <div className="flex items-center gap-3 whitespace-nowrap">
-            <span className="text-gray-400 font-medium shrink-0">Sort By</span>
+            <span className="text-gray-400 font-medium">Sort By</span>
 
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="select select-accent select-sm"
+              className="select select-success select-sm"
             >
               <option value="Duration">Duration</option>
               <option value="Calories">Calories</option>

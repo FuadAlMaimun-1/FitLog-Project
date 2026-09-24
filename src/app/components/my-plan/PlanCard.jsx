@@ -45,7 +45,7 @@ const MyPlanCard = ({ workout, activeTab, onRemove, onMarkDone }) => {
             {/* Calories */}
             <span className="flex items-center gap-1">
               <Flame className="w-3.5 h-3.5 text-zinc-500" />
-              {workout.calories} kcal
+              {workout.caloriesBurned} kcal
             </span>
 
             <span>•</span>

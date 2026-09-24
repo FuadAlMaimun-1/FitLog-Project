@@ -39,7 +39,7 @@ const TodayButton = ({ workout }) => {
           <line x1="10" y1="16" x2="14" y2="16" />
         </svg>
 
-        <span>Add to today's plan</span>
+        <span>Add to today&apos;s plan</span>
       </button>
     </div>
   );
