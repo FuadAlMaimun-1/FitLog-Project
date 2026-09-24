@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, Dumbbell } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
 const NotFound = () => {
   return (
@@ -9,8 +9,6 @@ const NotFound = () => {
       <div className="absolute w-72 h-72 bg-[#ccff00]/10 blur-[120px] rounded-full top-1/4 left-1/2 -translate-x-1/2" />
 
       <div className="relative z-10 text-center max-w-xl">
-
-        
 
         <h1 className="font-oswald text-6xl md:text-8xl font-black uppercase tracking-tight leading-none">
              404

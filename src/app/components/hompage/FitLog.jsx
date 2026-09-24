@@ -1,14 +1,15 @@
 import FitLogCard from './FitLogCard'; 
 
 const getFitLog = async () => {
-  const res = await fetch('https://api.abcz.workers.dev/api/fitlog', {
+  const res = await fetch('https://api.abcz.workers.dev/api/fitlog', 
+  {
     cache: 'no-store', 
   });
 
   if (!res.ok) {
     throw new Error('Failed to fetch workouts');
   }
-
+  
   return res.json();
 };
 
@@ -31,10 +32,10 @@ const FitLog = async () => {
 
         {/* 3x4 Grid of Workouts */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {fitLogData.map((item) => (
-            <FitLogCard key={item.id} fitLog={item} />
+          {fitLogData.map((fitLog) => (
+            <FitLogCard key={fitLog.id} fitLog={fitLog} />
           ))}
-        </div>
+        </div>  
 
       </div>
     </section>

@@ -53,27 +53,27 @@ const Page = async ({ params }) => {
     <main className="min-h-screen bg-[#121212] text-white py-10 px-4 md:px-8">
       <div className="max-w-6xl mx-auto space-y-8">
         {/* Top Navbar Brand */}
-       <div className="flex items-center gap-2">
-  <Link 
-    href="/" 
-    className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors"
-  >
-    <ArrowLeftIcon className="w-4 h-4" />
-    <span className="text-sm font-bold tracking-wider uppercase">
-      Back to Library
-    </span>
-  </Link>
-</div>
+        <div className="flex items-center gap-2">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors"
+          >
+            <ArrowLeftIcon className="w-4 h-4" />
+            <span className="text-sm font-bold tracking-wider uppercase">
+              Back to Library
+            </span>
+          </Link>
+        </div>
 
         {/* Main Details Grid Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           {/* Left Column: Image */}
           <div className="relative w-full aspect-square rounded-3xl overflow-hidden bg-zinc-900 border border-zinc-800">
             <Image
-              src={image || "/placeholder.png"}
-              alt={name || "Workout Detail"}
-              fill
-              priority
+              src={image}
+              alt={name}
+              width={600}
+              height={500}
               className="object-cover"
             />
           </div>
@@ -201,9 +201,8 @@ const Page = async ({ params }) => {
 
             {/* Action Buttons */}
             <div className="flex flex-wrap gap-4 pt-2">
-              
               {/* Add to today's plan Button */}
-             <TodayButton workout={workout} />
+              <TodayButton workout={workout} />
 
               {/* Save for later Button */}
               <SaveButton workout={workout} />

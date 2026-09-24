@@ -10,7 +10,6 @@ const FitLogProvider = ({ children }) => {
   const togglePlan = (item) => {
     const isExist = plan.find((i) => i.id === item.id);
 
-  
     if (isExist) {
       setPlan(plan.filter((i) => i.id !== item.id));
       return;
