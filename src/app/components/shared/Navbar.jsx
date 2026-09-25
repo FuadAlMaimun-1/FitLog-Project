@@ -2,8 +2,11 @@
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { Dumbbell, Menu, X } from "lucide-react";
+import {  Menu, X } from "lucide-react";
 import { useFitLog } from "@/context/FitLogContext";
+import logo from "@/assets/logo.png";
+import Image from "next/image";
+
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -57,7 +60,7 @@ const Navbar = () => {
             >
               {isMobileMenuOpen ? (
                 <X className="w-6 h-6 text-[#ccff00]" />
-              ) : (
+              ) : ( 
                 <Menu className="w-6 h-6" />
               )}
             </button>
@@ -99,8 +102,13 @@ const Navbar = () => {
           </div>
 
       
-          <Link href="/" className="flex items-center gap-2 group">
-            <Dumbbell className="w-6 h-6 text-[#ccff00] -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
+          <Link href="/" className="flex items-center gap-2">
+            <Image
+             src={logo}
+             alt="FitLog Logo"
+              width={20}
+              height={20}
+             />
 
             <span className="text-xl font-black tracking-wider text-white uppercase">
               FITLOG
@@ -145,6 +153,4 @@ const Navbar = () => {
     </nav>
   );
 };
-
 export default Navbar;
-

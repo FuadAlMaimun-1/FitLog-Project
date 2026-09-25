@@ -10,11 +10,11 @@ const Plan = () => {
 
   const { plan, saved, togglePlan, toggleSaved } = useFitLog();
   
-  const [sortBy, setSortBy] = useState("default");
+  const [sortBy, setSortBy] = useState("Duration");
   const searchParams = useSearchParams();
   const tab = searchParams.get("tab");
   const [activeTab, setActiveTab] = useState(
-    tab === "saved" ? "saved" : "today",
+    tab === "saved" ? "saved" : "today",  
   );
 
   const currentList = activeTab === "today" ? plan : saved;
@@ -157,14 +157,9 @@ const Plan = () => {
               onChange={(e) => setSortBy(e.target.value)}
               className="select select-success select-sm"
             >
-              <option value="default" className="text-gray-500">
-                Sort By
-              </option>
-
+              
               <option value="Duration">Duration</option>
-
               <option value="Calories">Calories</option>
-
               <option value="Rating">Rating</option>
             </select>
           </div>

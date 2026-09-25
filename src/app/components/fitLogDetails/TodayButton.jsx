@@ -9,20 +9,26 @@ const TodayButton = ({ workout }) => {
   const handleAddToPlan = () => {
     const isExist = plan.find((item) => item.id === workout.id);
 
+    // Already exists
     if (isExist) {
       toast.info("Workout is already in today's plan");
       return;
     }
-    
+    // Maximum 5 workouts
+    if (plan.length >= 5) {
+      return;
+    }
+
     togglePlan(workout);
-    toast.success("Workout added to plan successfully");
+    toast.success("Workout added to today's plan");
   };
 
   return (
     <div>
       <button
         onClick={handleAddToPlan}
-        className="bg-[#ccff00] text-black font-extrabold text-xs uppercase px-5 py-3 rounded-xl hover:bg-[#b8e600] transition-colors flex items-center cursor-pointer gap-2"
+        disabled={plan.length >= 5}
+        className="bg-[#ccff00] text-black font-extrabold text-xs uppercase px-5 py-3 rounded-xl hover:bg-[#b8e600] transition-colors flex items-center cursor-pointer gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         <svg
           className="w-4 h-4 text-black"

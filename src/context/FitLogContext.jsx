@@ -1,28 +1,36 @@
 "use client";
+
 import { createContext, useContext, useState } from "react";
+import { toast } from "react-toastify";
+
 export const FitLogContext = createContext(null);
 
 const FitLogProvider = ({ children }) => {
   const [plan, setPlan] = useState([]);
   const [saved, setSaved] = useState([]);
 
-
   const togglePlan = (item) => {
     const isExist = plan.find((i) => i.id === item.id);
 
+    // Already exists → Remove
     if (isExist) {
       setPlan(plan.filter((i) => i.id !== item.id));
       return;
     }
 
+    // Maximum 5 workouts
+    if (plan.length >= 5) {
+      toast.error("You can add maximum 5 workouts.");
+      return;
+    }
+
+    // Add workout
     setPlan([...plan, item]);
   };
-
 
   const toggleSaved = (item) => {
     const isExist = saved.find((i) => i.id === item.id);
 
-  
     if (isExist) {
       setSaved(saved.filter((i) => i.id !== item.id));
       return;
