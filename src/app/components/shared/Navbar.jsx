@@ -25,7 +25,7 @@ const Navbar = () => {
               : "text-zinc-400 hover:text-white"
           }
         >
-          Workouts
+          Workout
         </Link>
       </li>
 
